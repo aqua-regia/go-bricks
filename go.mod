@@ -1,3 +1,3 @@
-module bitbucket.org/coinswitch/go-bricks
+module github.com/aqua-regia/go-bricks
 
 go 1.16
