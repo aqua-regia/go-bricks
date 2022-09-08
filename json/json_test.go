@@ -1,6 +1,7 @@
 package json
 
 import (
+	pretty "bitbucket.org/coinswitch/go-bricks/util/pretty"
 	"bytes"
 	"encoding/hex"
 	"encoding/json"
@@ -13,7 +14,6 @@ import (
 )
 
 import (
-	"github.com/tidwall/pretty"
 	"math"
 )
 

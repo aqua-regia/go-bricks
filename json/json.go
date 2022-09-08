@@ -1,15 +1,14 @@
 package json
 
 import (
+	match "bitbucket.org/coinswitch/go-bricks/util/match"
+	pretty "bitbucket.org/coinswitch/go-bricks/util/pretty"
 	"strconv"
 	"strings"
 	"time"
 	"unicode/utf16"
 	"unicode/utf8"
 	"unsafe"
-
-	"github.com/tidwall/match"
-	"github.com/tidwall/pretty"
 )
 
 // Type is Result type
