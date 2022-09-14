@@ -5,14 +5,14 @@ import (
 	"log"
 )
 
-func Execute(fn func()) {
+func ExecuteAsync(fn func()) {
 	go func() {
 		defer recoverPanic()
 		fn()
 	}()
 }
 
-func CustomRecoveryExecute(fn func(), recoveryFunc func()) {
+func CustomRecoveryExecuteAsync(fn func(), recoveryFunc func()) {
 	go func() {
 		defer recoveryFunc()
 		fn()
