@@ -36,5 +36,5 @@ func main() {
 	fmt.Println(datatypes.URL{})
 	fmt.Println(postgres.Index{TableName: "hello"})
 	fmt.Println(gorm.DeletedAt{})
-
+	fmt.Println("hello world")
 }
