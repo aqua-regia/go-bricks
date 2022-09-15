@@ -1,4 +1,4 @@
-package go_bricks
+package test
 
 func main() {
 	//fmt.Println(gabs.ParseJSON([]byte(`{}`)))

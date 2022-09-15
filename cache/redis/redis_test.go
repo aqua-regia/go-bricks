@@ -1,4 +1,4 @@
-package cache_test
+package Cache_test
 
 import (
 	cache "bitbucket.org/coinswitch/go-bricks/cache/redis"
