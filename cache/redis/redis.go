@@ -353,3 +353,12 @@ func (cd *Cache) Stats() *Stats {
 		Misses: atomic.LoadUint64(&cd.misses),
 	}
 }
+
+func GetDefaultUniversalClient(addrs []string) *Cache {
+	universal_client := redis.NewUniversalClient(&redis.UniversalOptions{
+		Addrs: addrs,
+	})
+
+	clusterClient := New(&Options{Redis: universal_client})
+	return clusterClient
+}
