@@ -5,21 +5,21 @@ import (
 	"log"
 )
 
-func ExecuteAsync(fn func()) {
+func GoRoutineRecoveryExecute(fn func()) {
 	go func() {
-		defer recoverPanic()
+		defer recoverFromPanic(nil)
 		fn()
 	}()
 }
 
-func CustomRecoveryExecuteAsync(fn func(), recoveryFunc func()) {
+func GoRoutineCustomRecoveryExecute(fn func(), recoveryFunc func(err error)) {
 	go func() {
-		defer recoveryFunc()
+		defer recoverFromPanic(recoveryFunc)
 		fn()
 	}()
 }
 
-func recoverPanic() {
+func recoverFromPanic(callback func(err error)) {
 	if r := recover(); r != nil {
 		err, ok := r.(error)
 		if !ok {
@@ -27,6 +27,9 @@ func recoverPanic() {
 		}
 		fmt.Println(err)
 		newStack := stack(0)
-		log.Printf("%s\n", string(newStack))
+		log.Println("%s\n", string(newStack))
+		if callback != nil {
+			callback(err)
+		}
 	}
 }
