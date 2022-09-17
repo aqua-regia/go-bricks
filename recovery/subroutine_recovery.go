@@ -5,14 +5,14 @@ import (
 	"log"
 )
 
-func GoRoutineRecoveryExecute(fn func()) {
+func GoRoutineRecovery(fn func()) {
 	go func() {
 		defer recoverFromPanic(nil)
 		fn()
 	}()
 }
 
-func GoRoutineCustomRecoveryExecute(fn func(), recoveryFunc func(err error)) {
+func GoRoutineCustomRecovery(fn func(), recoveryFunc func(err error)) {
 	go func() {
 		defer recoverFromPanic(recoveryFunc)
 		fn()
