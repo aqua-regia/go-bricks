@@ -1,4 +1,4 @@
-package go_bricks
+package test
 
 import (
 	"fmt"
@@ -18,11 +18,9 @@ import (
 )
 
 func main() {
-	fmt.Println(gabs.ParseJSON([]byte(`{}`)))
 	fmt.Println(aws.String("hello world"))
 	fmt.Println(cors.DefaultSchemas)
 	fmt.Println(gin.ContextKey)
-	fmt.Println(gormigrate.ErrUnknownPastMigration)
 	fmt.Println(redisv8.XAutoClaimCmd{})
 	fmt.Println(redisv7.ClusterSlotsCmd{})
 	fmt.Println(uuid.New().String())
