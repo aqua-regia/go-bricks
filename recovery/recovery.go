@@ -27,16 +27,16 @@ type RecoveryFunc func(c *gin.Context, err interface{})
 
 //CustomRecovery returns a middleware that recovers from any panics and calls the provided handle func to handle it.
 func CustomRecovery(handle RecoveryFunc) gin.HandlerFunc {
-	return RecoveryWithWriter(gin.DefaultErrorWriter, handle)
+	return recoveryWithWriter(gin.DefaultErrorWriter, handle)
 }
 
 // RecoveryWithWriter returns a middleware for a given writer that recovers from any panics and writes a 500 if there was one.
-func RecoveryWithWriter(out io.Writer, recovery ...RecoveryFunc) gin.HandlerFunc {
-	return CustomRecoveryWithWriter(out, recovery[0])
+func recoveryWithWriter(out io.Writer, recovery ...RecoveryFunc) gin.HandlerFunc {
+	return customRecoveryWithWriter(out, recovery[0])
 }
 
 // CustomRecoveryWithWriter returns a middleware for a given writer that recovers from any panics and calls the provided handle func to handle it.
-func CustomRecoveryWithWriter(out io.Writer, handle RecoveryFunc) gin.HandlerFunc {
+func customRecoveryWithWriter(out io.Writer, handle RecoveryFunc) gin.HandlerFunc {
 	var logger *log.Logger
 	if out != nil {
 		logger = log.New(out, "\n\n\x1b[31m", log.LstdFlags)

@@ -25,7 +25,6 @@ func recoverFromPanic(callback func(err error)) {
 		if !ok {
 			err = fmt.Errorf("%v", r)
 		}
-		fmt.Println(err)
 		newStack := stack(0)
 		log.Println("%s\n", string(newStack))
 		if callback != nil {
