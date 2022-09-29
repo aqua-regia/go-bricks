@@ -1,8 +1,8 @@
 package Cache_test
 
 import (
-	cache "bitbucket.org/coinswitch/go-bricks/cache/redis"
 	"context"
+	cache "github.com/aqua-regia/go-bricks/cache/redis"
 	"github.com/go-redis/redis/v8"
 	"testing"
 	"time"

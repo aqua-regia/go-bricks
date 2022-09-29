@@ -1,8 +1,8 @@
 package test
 
 import (
-	Recovery "bitbucket.org/coinswitch/go-bricks/recovery"
 	"fmt"
+	Recovery "github.com/aqua-regia/go-bricks/recovery"
 	"testing"
 	"time"
 )
